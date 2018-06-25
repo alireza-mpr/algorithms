@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greedy", "RoundRobinTournament\Greedy\Greedy.csproj", "{A45DFA34-88D0-4B4D-A318-5A45E1486EE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RoundRobinTournament", "RoundRobinTournament", "{150E5BD2-4C68-4C7F-923D-8CF277E18701}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoundRobinTournament", "RoundRobinTournament\RoundRobinTournament\RoundRobinTournament.csproj", "{1262A3EF-FD04-421A-BA5E-F524C70C11CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphColouring", "GraphColouring", "{D4F7653E-9A12-4B25-8847-87C16A599A7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A45DFA34-88D0-4B4D-A318-5A45E1486EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A45DFA34-88D0-4B4D-A318-5A45E1486EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A45DFA34-88D0-4B4D-A318-5A45E1486EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A45DFA34-88D0-4B4D-A318-5A45E1486EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1262A3EF-FD04-421A-BA5E-F524C70C11CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1262A3EF-FD04-421A-BA5E-F524C70C11CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1262A3EF-FD04-421A-BA5E-F524C70C11CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1262A3EF-FD04-421A-BA5E-F524C70C11CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A45DFA34-88D0-4B4D-A318-5A45E1486EE4} = {150E5BD2-4C68-4C7F-923D-8CF277E18701}
+		{1262A3EF-FD04-421A-BA5E-F524C70C11CD} = {150E5BD2-4C68-4C7F-923D-8CF277E18701}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {505C2EC8-1CD4-4EF2-BED1-E894CAEDC2AF}
+	EndGlobalSection
+EndGlobal
