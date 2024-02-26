@@ -8,6 +8,7 @@ namespace ConsoleApp1
 {
     public static class BubbleSort
     {
+        // Time Complexity: O(N^2), Space: O(1)
         public static void Sort(int[] array)
         {
             bool swapped;
