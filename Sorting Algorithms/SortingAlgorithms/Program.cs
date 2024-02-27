@@ -16,17 +16,18 @@ namespace ConsoleApp1
 
             foreach (var array in arrays)
             {
-                Print(array);
-                //BubbleSort.SortSlightlyOptimized(array);
-                InsertionSort.Sort(array);
-                Print(array);
+                Print("Unsorted", array);
+                BubbleSort.SortSlightlyOptimized(array);
+                //InsertionSort.Sort(array);
+                Print("Sorted", array);
                 Console.WriteLine("===");
 
             }
         }
 
-        private static void Print(int[] array)
+        private static void Print(string message, int[] array)
         {
+            Console.WriteLine(message);
             array.ToList().ForEach(p => Console.Write(p + " "));
             Console.WriteLine();
         }

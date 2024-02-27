@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace SortingAlgorithms
 {
     public static class BubbleSort
     {
         // Time Complexity: O(N^2), Space: O(1)
+        // Intuition: In each iteration(bubble) :: the max is pushed to the end of the array
+        // Idea:
+        // Take two adjucent pointers from the first element.
+        //   Move them forward. If necessary, swap the pointers.
+        //   Repeat from the second element, and so on.
+        // Stop when no swap was done OR,
+        // take a wall pointer and incrementally decrement the wall from the end of the array.
         public static void Sort(int[] array)
         {
             bool swapped;
@@ -17,12 +24,9 @@ namespace ConsoleApp1
                 swapped = false;
                 for (int i = 0; i < array.Length - 1; i++)
                 {
-                    var left = array[i];
-                    var right = array[i + 1];
-                    if (left > right)
+                    if (array[i] > array[i + 1])
                     {
-                        array[i] = right;
-                        array[i + 1] = left;
+                        (array[i], array[i + 1]) = (array[i + 1], array[i]);
                         swapped = true;
                     }
                 }
@@ -31,21 +35,17 @@ namespace ConsoleApp1
 
         public static void SortSlightlyOptimized(int[] array)
         {
-            int wall = array.Length - 1; // https://youtu.be/9I2oOAr2okY?si=yEYpXAh372rISLct
-            do
+            // https://youtu.be/9I2oOAr2okY?si=yEYpXAh372rISLct
+            for(int wall = array.Length - 1; wall>=0; wall --)
             {
                 for (int i = 0; i < wall; i++)
                 {
-                    var left = array[i];
-                    var right = array[i + 1];
-                    if (left > right)
+                    if (array[i] > array[i + 1])
                     {
-                        array[i] = right;
-                        array[i + 1] = left;
+                        (array[i], array[i + 1]) = (array[i + 1], array[i]);
                     }
                 }
-                wall--;
-            } while (wall >= 0);
+            }
         }
     }
 }
