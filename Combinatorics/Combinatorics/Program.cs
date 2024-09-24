@@ -4,10 +4,18 @@
     {
         static void Main(string[] args)
         {
-            var elements = new List<string>() { "A", "B" , "C", "D" };
+            var elements = new List<string>() { "A", "B", "C", "D" };
+
+            Console.WriteLine($"Subsets of [{string.Join(",", elements)}]:");
+            foreach (var subset in Set.GetSubsets(elements).OrderBy(p=>p.Count))
+            {
+                Console.WriteLine(string.Join(",", subset));
+            }
+
+            return;
             var result = new List<List<string>>();
             int c = 2;
-            
+
             GeneratePermutation(elements, result, c);
             result.Clear();
             GenerateCombination(elements, result, c);
@@ -18,7 +26,7 @@
 
         private static void GenerateCombination(List<string> elements, List<List<string>> allCombinations, int c)
         {
-            Combination(elements,0, c, new(), allCombinations);
+            Combination(elements, 0, c, new(), allCombinations);
 
             Console.WriteLine($"Combination of {c} selections from {elements.Count} items = {allCombinations.Count}");
             for (int i = 0; i < allCombinations.Count; i++)
