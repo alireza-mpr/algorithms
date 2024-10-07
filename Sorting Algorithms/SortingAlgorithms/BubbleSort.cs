@@ -8,8 +8,12 @@ namespace SortingAlgorithms
 {
     public static class BubbleSort
     {
-        // Time Complexity: O(N^2), Space: O(1)
-        // Intuition: In each iteration(bubble) :: the max is pushed to the end of the array
+        // Time Complexity: Worst: O(N^2), Best: O(N)
+        // It stops as soon as the array becomes sorted in the middle of the way:
+        // As soon as it can't swap, it stops.
+        // 
+        // Space: O(1)
+        // Intuition: In each iteration(bubble) :: the maximum FLOATS to the end of the array
         // Idea:
         // Take two adjucent pointers from the first element.
         //   Move them forward. If necessary, swap the pointers.
