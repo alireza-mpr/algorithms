@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArrayAlgorithms
+namespace ArrayAlgorithms.NTupleSum
 {
     public class NElementSum
     {
@@ -28,7 +28,7 @@ namespace ArrayAlgorithms
             {
                 foreach (var nTuple in FindElements(K - 1, i + 1, array, targetSum - array[i]))
                 {
-                    result.Add((new[] { array[i] }.Concat(nTuple)).ToArray());
+                    result.Add(new[] { array[i] }.Concat(nTuple).ToArray());
                 }
             }
             return result;
