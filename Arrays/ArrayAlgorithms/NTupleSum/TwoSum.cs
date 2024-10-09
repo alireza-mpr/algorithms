@@ -12,32 +12,55 @@ namespace ArrayAlgorithms.NTupleSum
     {
         public static List<int[]> TwoPassHash(int[] array, int target, int startIndex = 0)
         {
-            var hash = new HashSet<int>(array.Skip(startIndex));
-            var result = new List<int[]>();
-
-            foreach (var n in array.Skip(startIndex))
+            var hash = new Dictionary<int, List<int>>();
+            for (int i = startIndex; i < array.Length; i++)
             {
+                var n = array[i];
+                if (!hash.ContainsKey(n))
+                    hash[n] = new List<int>();
+                hash[n].Add(i);
+            }
+            
+            var result = new List<int[]>();
+            for (int i = startIndex; i < array.Length; i++)
+            {
+                var n = array[i];
                 var complement = target - n;
 
-                if (hash.Contains(complement) && complement > n)
-                    result.Add(new int[] { complement, n });
+                if (hash.ContainsKey(complement))
+                {
+                    foreach (var compIndex in hash[complement])
+                    {
+                        if (compIndex > i)
+                            result.Add(new int[] { array[i], array[compIndex] });
+                    }
+                }
             }
             return result;
         }
 
         public static List<int[]> OnePassHash(int[] array, int target, int startIndex = 0)
         {
-            var hash = new HashSet<int>();
+            var hash = new Dictionary<int, List<int>>();
             var result = new List<int[]>();
 
-            foreach (var n in array.Skip(startIndex))
+            for (int i = startIndex; i < array.Length; i++)
             {
+                var n = array[i];
                 var complement = target - n;
 
-                if (hash.Contains(complement))
-                    result.Add(new int[] { complement, n });
+                if (hash.ContainsKey(complement))
+                {
+                    foreach (var compIndex in hash[complement])
+                    {
+                        result.Add(new int[] { array[i], array[compIndex] });
+                    }
+                }
 
-                hash.Add(n);
+                if (!hash.ContainsKey(n))
+                    hash[n] = new List<int>();
+
+                hash[n].Add(i);
             }
             return result;
         }
@@ -53,7 +76,16 @@ namespace ArrayAlgorithms.NTupleSum
             {
                 var sum = array[i] + array[j];
                 if (sum == target)
-                    result.Add(new int[] { array[i], array[j] });
+                {
+                    var jCopy = j;
+                    while (i < jCopy && array[jCopy] == array[j])
+                    {
+                        result.Add(new int[] { array[i], array[jCopy] });
+                        jCopy--;
+                    }
+                    i++;
+                    continue;
+                }
 
                 if (sum < target)
                     i++;
