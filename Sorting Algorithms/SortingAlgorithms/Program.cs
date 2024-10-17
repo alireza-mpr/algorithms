@@ -25,6 +25,13 @@ namespace ConsoleApp1
                 Console.WriteLine("===");
             }
 
+            Console.WriteLine("***** Counting Sort *****");
+
+            var theArray = new int[] { 1, 100, 0, 2, 4, 4, 5, 100, 100, 1, 7, 0, 0, 5, 7 };
+            Print("Unsorted", theArray);
+            Print("Sorted:", CountingSort.Sort(theArray));
+
+
             arrays = new[]
             {
                 new int[] { 10, 3, 5, 7, 3, 1, -1, 2, 0 },
