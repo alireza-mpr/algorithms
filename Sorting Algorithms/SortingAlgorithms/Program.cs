@@ -47,7 +47,7 @@ namespace ConsoleApp1
             foreach (var array in arrays)
             {
                 Print("Unsorted", array);
-                Print($"Smallest {K} elements:", KSmallestValues.Get(array, K));
+                Print($"Smallest {K} elements:", QuickSelect.GetSmallestValues(array, K));
                 Console.WriteLine("===");
             }
         }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace SortingAlgorithms
 {
-    public class KSmallestValues
+    public class QuickSelect
     {
-        public static List<int> Get(int[] values, int k)
+        public static List<int> GetSmallestValues(int[] values, int k)
         {
-            QuickSortHelper(values, 0, values.Length - 1, k);
+            QuickSelectHelper(values, 0, values.Length - 1, k);
             return values.Take(k).ToList();
         }
 
-        private static void QuickSortHelper(int[] array, int start, int end, int k)
+        private static void QuickSelectHelper(int[] array, int start, int end, int k)
         {
             if (start > end)
                 return;
@@ -47,9 +47,9 @@ namespace SortingAlgorithms
                 return;
 
             if (right > k - 1)
-                QuickSortHelper(array, start, right - 1, k);
+                QuickSelectHelper(array, start, right - 1, k);
             else
-                QuickSortHelper(array, right + 1, end, k);
+                QuickSelectHelper(array, right + 1, end, k);
         }
 
         static void Swap(int[] array, int i, int j)
